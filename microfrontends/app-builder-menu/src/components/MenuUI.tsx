@@ -94,6 +94,11 @@ const StyledPlaceholder = styled.a`
   }
 `;
 
+const StyledIconContainer = styled.div`
+  display: flex;
+  transform: scale(0.8)
+`
+
 interface Props {
   config: MfeConfig;
   dynamicMenuItems: MenuItem[];
@@ -449,7 +454,7 @@ export function MenuUI(props: Props): JSX.Element {
             label={content.EPCS}
             hasError={epcHasError}
             errorTooltipLabel={content.epcHasError}
-            renderIcon={props => <EPCsIcon {...props} />}
+            renderIcon={props => <StyledIconContainer><EPCsIcon {...props} /></StyledIconContainer>}
           >
             {epcMenuItems?.length ? (
               epcMenuItems.map(epc => {

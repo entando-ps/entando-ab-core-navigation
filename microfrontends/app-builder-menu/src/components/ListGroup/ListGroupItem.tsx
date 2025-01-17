@@ -52,9 +52,7 @@ const StyledLink = styled.a<StyledLinkProps>`
   white-space: nowrap;
   text-decoration: none;
   display: flex;
-  ${({ isActive }) =>
-    isActive
-      ? `
+  ${({ isActive }) => isActive && `
   &:before {
     background: #e5eeff;
     content: " ";
@@ -65,9 +63,8 @@ const StyledLink = styled.a<StyledLinkProps>`
     left: -4px;
     position: absolute;
     top: 6px;
-  }
-  `
-      : ''}
+  }`
+}
 
   &:hover {
     font-weight: 600;
