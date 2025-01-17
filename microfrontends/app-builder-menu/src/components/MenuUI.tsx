@@ -65,8 +65,8 @@ import { useActiveMenuItem } from '../hooks/menu';
 
 const MenuCmp = styled.menu`
   height: 100%;
-  background: ${COLORS.primary};
-  border-right: 1px solid ${COLORS.primary};
+  background-color: ${COLORS.backgroundPrimary};
+  border-right: 1px solid ${COLORS.neutralGrey};
   bottom: 0;
   left: 0;
   overflow-x: hidden;
@@ -79,9 +79,8 @@ const MenuCmp = styled.menu`
 
 const StyledPlaceholder = styled.a`
   display: inline-block;
-  color: ${COLORS.text};
-  font-size: 14px;
-  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-family: Inter;
   font-weight: 400;
   line-height: 26px;
   margin: 0;
@@ -90,7 +89,8 @@ const StyledPlaceholder = styled.a`
   text-align: left;
   text-decoration: none;
   &:hover {
-    text-decoration: underline;
+    color: ${COLORS.textSecondary};
+    font-weight: bold;
   }
 `;
 

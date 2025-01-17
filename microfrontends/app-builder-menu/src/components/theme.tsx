@@ -7,5 +7,10 @@ export const COLORS = {
   secondary: '#4D5257',
   blue: '#39a5dc',
   inactive: '#72767b',
-  darkGrey: '#979797'
+  darkGrey: '#979797',
+  brandPrimary: '#1A75FF',
+  neutralGrey: '#E4E7EC',
+  textSecondary: "#344051",
+  textTertiary: '#637083',
+  backgroundPrimary: '#FFFFFF',
 };

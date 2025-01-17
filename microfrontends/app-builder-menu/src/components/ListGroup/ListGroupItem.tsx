@@ -13,14 +13,8 @@ interface ListGroupItemProps {
 const StyledListGroupItem = styled.li<ListGroupItemProps>`
   position: relative;
   display: block;
-  padding: 10px 15px;
   margin-bottom: -1px;
-  border: 1px solid ${COLORS.border};
-  border-left: 0;
-  border-right: 0;
-  background-color: transparent;
-  padding: 0;
-  color: ${({ isActive }) => (isActive ? COLORS.white : '')};
+  color: ${({ isActive }) => (isActive ? COLORS.blue : '')};
   ${({ fixBottom }) =>
     fixBottom
       ? `
@@ -44,9 +38,7 @@ interface StyledLinkProps {
 
 const StyledLink = styled.a<StyledLinkProps>`
   width: 215px;
-  background-color: ${({ isActive }) =>
-    isActive ? COLORS.active : 'transparent'};
-  color: ${({ isActive }) => (isActive ? COLORS.white : COLORS.text)};
+  color: ${({ isActive }) => (isActive ? COLORS.blue : COLORS.textTertiary )};
   cursor: pointer;
   display: block;
   opacity: ${({ isDisabled }) => (isDisabled ? '0.5' : '1')};
@@ -54,48 +46,37 @@ const StyledLink = styled.a<StyledLinkProps>`
   font-size: 14px;
   font-family: 'Open Sans', sans-serif;
   font-weight: ${({ isActive }) => (isActive ? '600' : '400')};
-  height: 63px;
+  height: 40px;
   line-height: 26px;
-  padding: 17px 20px 17px 25px;
   position: relative;
   white-space: nowrap;
   text-decoration: none;
   display: flex;
-  padding-right: 0;
   ${({ isActive }) =>
     isActive
       ? `
   &:before {
-    background: ${COLORS.blue};
+    background: #e5eeff;
     content: " ";
-    height: 100%;
-    left: 0;
+    border-radius: 8px;
+    width: 28px;
+    height: 28px;
+    z-index: 0;
+    left: -4px;
     position: absolute;
-    top: 0;
-    width: 3px;
+    top: 6px;
   }
   `
       : ''}
 
   &:hover {
     font-weight: 600;
-    color: ${COLORS.white};
-    background-color: ${COLORS.active};
-    &:before {
-      background: ${COLORS.blue};
-      content: ' ';
-      height: 100%;
-      left: 0;
-      position: absolute;
-      top: 0;
-      width: 3px;
-    }
 
     span > svg > path {
-      fill: ${COLORS.blue};
+      stroke: ${COLORS.blue};
     }
     span > svg > g > path {
-      fill: ${COLORS.blue};
+      stroke: ${COLORS.blue};
     }
   }
 `;
@@ -105,11 +86,12 @@ const StyledIcon = styled.span`
   align-items: center;
   color: ${COLORS.inactive};
   float: left;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 26px;
   margin-right: 10px;
   text-align: center;
   width: 24px;
+  z-index: 1;
 `;
 
 export const StyledLabel = styled.span`
@@ -127,7 +109,7 @@ interface Props {
   id: string;
   fixBottom?: boolean;
   label: string;
-  renderIcon: ({ fill }: { fill?: string }) => React.ReactNode;
+  renderIcon: ({ fill, stroke }: { fill?: string, stroke?: string }) => React.ReactNode;
   children?: React.ReactNode;
   onClick?: () => void;
   href?: string;
@@ -199,12 +181,12 @@ export function ListGroupItem(props: Props): JSX.Element {
     >
       <StyledLink isActive={isActive} href={href} isDisabled={isDisabled}>
         <StyledIcon>
-          {renderIcon({ fill: isActive ? COLORS.blue : COLORS.inactive })}
+          {renderIcon({ stroke: isActive ? COLORS.blue : COLORS.inactive })}
         </StyledIcon>
         <StyledLabel>{label}</StyledLabel>
         {hasChildren && (
           <StyledIcon>
-            <RightArrowIcon />{' '}
+            <RightArrowIcon />
           </StyledIcon>
         )}
       </StyledLink>

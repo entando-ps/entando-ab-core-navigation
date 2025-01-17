@@ -6,10 +6,8 @@ import { MenuUIContext } from '../MenuUIContext';
 import { COLORS } from '../theme';
 
 const StyledSecondaryNavMenu = styled.div<{ isVisible: boolean }>`
-  background: ${COLORS.active};
-  border: 1px solid ${COLORS.primary};
-  border-bottom: none;
-  border-top: none;
+  background: ${COLORS.backgroundPrimary};
+  border-right: 1px solid ${COLORS.neutralGrey};
   bottom: 0;
   display: block;
   left: 215px;
@@ -29,13 +27,13 @@ const StyledHeader = styled.div`
   align-items: center;
   color: ${COLORS.text};
   font-weight: 600;
-  margin-top: 19px;
-  margin-left: 28px;
+  justify-content: flex-end;
+  padding-inline: 24px;
 `;
 
-const StyledTitle = styled.span`
-  margin-left: 14px;
-`;
+// const StyledTitle = styled.span`
+//   margin-left: 8px;
+// `;
 
 const StyledSecondaryListGroup = styled.ul`
   margin-top: 23px;
@@ -80,7 +78,7 @@ export function SecondaryMenu(props: Props): JSX.Element {
         <StyledBackButton onClick={handleBack} data-back={SUBMENU_BACK_BUTTON_DATA_ID}>
           <BackButtonIcon />
         </StyledBackButton>
-        <StyledTitle>{title}</StyledTitle>
+        {/* <StyledTitle>{title}</StyledTitle> */}
       </StyledHeader>
       <StyledSecondaryListGroup>{children}</StyledSecondaryListGroup>
     </StyledSecondaryNavMenu>
