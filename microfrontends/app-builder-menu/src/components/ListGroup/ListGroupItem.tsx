@@ -14,17 +14,14 @@ const StyledListGroupItem = styled.li<ListGroupItemProps>`
   position: relative;
   display: block;
   margin-bottom: -1px;
+  padding-left: 4px;
   color: ${({ isActive }) => (isActive ? COLORS.blue : '')};
-  ${({ fixBottom }) =>
-    fixBottom
-      ? `
-  @media (min-height: 636px) {
-    position: fixed;
-    bottom: 64px;
-    left: 0;
+  ${({ fixBottom }) => fixBottom && `
+    @media (min-height: 636px) {
+      position: fixed;
+      bottom: 64px;
+    }`
   }
-  `
-      : ''}
 
   &:first-child {
     border-top: 0px;
