@@ -1,13 +1,13 @@
 import { COLORS } from '../theme';
 
 interface Props {
-  width?: number;
-  height?: number;
   fill?: string;
+  stroke?: string;
+  strokeWidth?: number;
 }
 
 export function AdministrationIcon(props: Props): JSX.Element {
-  const { fill = COLORS.inactive } = props;
+  const { stroke = COLORS.inactive, strokeWidth = 0,  fill = stroke } = props;
   return (
     <svg
       version="1.1"
@@ -19,6 +19,8 @@ export function AdministrationIcon(props: Props): JSX.Element {
     >
       <path
         fill={fill}
+        stroke={stroke}
+        strokeWidth={strokeWidth}
         id="path4627"
         d="M910.143,91.119l-16.916,81.053c-17.338,2.724-34.037,7.74-49.691,14.743
       l-58.229-58.825l-66.309,53.661l45.354,69.303c-10.104,13.862-18.357,29.104-24.623,45.503l-82.85-0.374l-8.906,84.87l81.055,16.914
