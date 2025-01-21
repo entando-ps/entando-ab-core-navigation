@@ -41,7 +41,6 @@ const StyledLink = styled.a<StyledLinkProps>`
   opacity: ${({ isDisabled }) => (isDisabled ? '0.5' : '1')};
   pointer-events: ${({ isDisabled }) => (isDisabled ? 'none' : 'auto')};
   font-size: 14px;
-  font-family: 'Open Sans', sans-serif;
   font-weight: ${({ isActive }) => (isActive ? '600' : '400')};
   height: 40px;
   line-height: 26px;
@@ -69,6 +68,11 @@ const StyledLink = styled.a<StyledLinkProps>`
     span > svg > path {
       stroke: ${COLORS.blue};
     }
+
+    span > svg {
+      stroke-width: 3px;
+    }
+
     span > svg > g > path {
       stroke: ${COLORS.blue};
     }
@@ -180,7 +184,7 @@ export function ListGroupItem(props: Props): JSX.Element {
         <StyledLabel>{label}</StyledLabel>
         {hasChildren && (
           <StyledIcon>
-            <RightArrowIcon />
+            <RightArrowIcon fill={isActive ? COLORS.blue : COLORS.inactive} />
           </StyledIcon>
         )}
       </StyledLink>

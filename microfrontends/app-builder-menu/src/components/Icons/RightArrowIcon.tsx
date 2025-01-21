@@ -7,7 +7,7 @@ interface Props {
 }
 
 export function RightArrowIcon(props: Props): JSX.Element {
-  const { width = 20, height = 20, fill = COLORS.darkGrey } = props;
+  const { width = 12, height = 12, fill = COLORS.textTertiary } = props;
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

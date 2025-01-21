@@ -12,7 +12,6 @@ const StyledLink = styled.a<{ isActive: boolean }>`
   cursor: pointer;
   display: block;
   font-size: 14px;
-  font-family: 'Open Sans', sans-serif;
   font-weight: ${({ isActive }) => (isActive ? '600' : '400')};
   line-height: 26px;
   padding: 5px 10px 5px 8px;

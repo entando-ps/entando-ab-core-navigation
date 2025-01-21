@@ -69,6 +69,7 @@ const MenuCmp = styled.menu`
   border-right: 1px solid ${COLORS.neutralGrey};
   bottom: 0;
   left: 0;
+  font-family: Inter, serif;
   overflow-x: hidden;
   overflow-y: auto;
   position: fixed;
@@ -80,7 +81,6 @@ const MenuCmp = styled.menu`
 const StyledPlaceholder = styled.a`
   display: inline-block;
   font-size: 16px;
-  font-family: Inter;
   font-weight: 400;
   line-height: 26px;
   margin: 0;
