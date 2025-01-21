@@ -31,10 +31,6 @@ const StyledHeader = styled.div`
   padding-inline: 24px;
 `;
 
-// const StyledTitle = styled.span`
-//   margin-left: 8px;
-// `;
-
 const StyledSecondaryListGroup = styled.ul`
   margin-top: 23px;
   padding-left: 24px;
@@ -45,6 +41,10 @@ const StyledBackButton = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
+
+  &:hover > svg {
+    fill: ${COLORS.blue};
+  }
 `;
 
 interface Props {
@@ -54,7 +54,7 @@ interface Props {
 }
 
 export function SecondaryMenu(props: Props): JSX.Element {
-  const { isOpen, title, children } = props;
+  const { isOpen, /*title,*/ children } = props;
 
   const {
     setSecondaryMenuOpen,
