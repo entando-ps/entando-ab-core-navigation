@@ -34,10 +34,9 @@ interface StyledLinkProps {
 }
 
 const StyledLink = styled.a<StyledLinkProps>`
-  width: 215px;
+  width: 200px;
   color: ${({ isActive }) => (isActive ? COLORS.blue : COLORS.textTertiary )};
   cursor: pointer;
-  display: block;
   opacity: ${({ isDisabled }) => (isDisabled ? '0.5' : '1')};
   pointer-events: ${({ isDisabled }) => (isDisabled ? 'none' : 'auto')};
   font-size: 14px;
@@ -48,6 +47,8 @@ const StyledLink = styled.a<StyledLinkProps>`
   white-space: nowrap;
   text-decoration: none;
   display: flex;
+  column-gap: 10px;
+  padding-right: 5px;
   ${({ isActive }) => isActive && `
   &:before {
     background: #e5eeff;
@@ -86,7 +87,6 @@ const StyledIcon = styled.span`
   float: left;
   font-size: 16px;
   line-height: 26px;
-  margin-right: 10px;
   text-align: center;
   width: 24px;
   z-index: 1;

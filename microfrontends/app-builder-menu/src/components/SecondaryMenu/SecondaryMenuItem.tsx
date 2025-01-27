@@ -18,7 +18,6 @@ const StyledLink = styled.a<{ isActive: boolean }>`
   white-space: nowrap;
   text-decoration: none;
   display: flex;
-  margin-top: 4px;
 
   &:hover {
     font-weight: bold;  

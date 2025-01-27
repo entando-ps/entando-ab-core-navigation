@@ -13,7 +13,7 @@ const StyledSecondaryTertiaryMenu = styled.div<{ isVisible: boolean }>`
   overflow-x: hidden;
   overflow-y: auto;
   position: fixed;
-  top: 60px;
+  top: 50px;
   opacity: 0;
   visibility: hidden;
   ${({ isVisible }) => (isVisible ? `opacity: 1; visibility: visible;` : ``)}

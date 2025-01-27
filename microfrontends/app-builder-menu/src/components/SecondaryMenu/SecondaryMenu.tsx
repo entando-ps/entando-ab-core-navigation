@@ -14,11 +14,12 @@ const StyledSecondaryNavMenu = styled.div<{ isVisible: boolean }>`
   overflow-x: hidden;
   overflow-y: auto;
   position: fixed;
-  top: 60px;
+  top: 50px;
   opacity: 0;
   visibility: hidden;
   ${({ isVisible }) => (isVisible ? `opacity: 1; visibility: visible;` : ``)}
-  width: 215px;
+  width: 235px;
+  padding-top: 20px;
   z-index: 1030;
 `;
 
@@ -32,8 +33,8 @@ const StyledHeader = styled.div`
 `;
 
 const StyledSecondaryListGroup = styled.ul`
-  margin-top: 23px;
-  padding-left: 24px;
+  margin-top: 10px;
+  padding-left: 10px;
   padding-right: 0px;
 `;
 
