@@ -34,7 +34,7 @@
     "eslint-config-react-app": "7.0.1",
     "jest": "28.1.0",
     "jest-environment-jsdom": "28.1.0",
-    "msw": "0.41.1",
+    "msw": "2.8.4",
     "prettier": "2.6.2",
     "react-test-renderer": "18.1.0",
     "ts-node": "10.8.0",
