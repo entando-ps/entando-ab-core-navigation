@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@babel/traverse": "7.27.3",
+    "@xmldom/xmldom": "0.9.8",
     "axios": "0.30.0",
     "react": "18.1.0",
     "react-dom": "18.1.0",
