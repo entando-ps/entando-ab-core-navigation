@@ -54,7 +54,7 @@ import {
   ROUTE_USER_RESTRICTIONS,
   ROUTE_WIDGET_LIST
 } from '../utils/routes';
-import { useContent } from '../hooks/useContent';
+import { useContent } from './hooks/useContent';
 import { ContentType, DEFAULT_LOCALE } from '../content';
 import { useNavigation } from '../hooks/navigation';
 import { sendTutorialNextStepEvent } from '../utils/events';
@@ -99,7 +99,6 @@ interface Props {
   dynamicMenuItems: MenuItem[];
   openDefaultSubmenuId?: string;
   epcHasError: boolean;
-  hideContentMenuItem?: boolean;
 }
 
 export function MenuUI(props: Props): JSX.Element {
@@ -107,10 +106,10 @@ export function MenuUI(props: Props): JSX.Element {
     config,
     dynamicMenuItems,
     openDefaultSubmenuId = '',
-    epcHasError,
-    hideContentMenuItem,
+    epcHasError
   } = props;
   const { userPermissions, systemReport, adminConsoleUrl, lang, advancedSearchOn,
+    disableContentMenu,
   } =
     window.entando?.globals || {};
 
@@ -282,7 +281,7 @@ export function MenuUI(props: Props): JSX.Element {
               />
             </ListGroupItem>
           )}
-          {cmsHasAnyMenuItemAccess && !hideContentMenuItem && (
+          {cmsHasAnyMenuItemAccess && !disableContentMenu && (
             <ListGroupItem
               id="content"
               dataId="content"

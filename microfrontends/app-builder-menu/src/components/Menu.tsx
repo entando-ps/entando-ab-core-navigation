@@ -6,7 +6,7 @@ import { IntlProvider, MessageFormatElement } from 'react-intl';
 import en_messages from '../i18n/en.json';
 import it_messages from '../i18n/it.json';
 import pt_messages from '../i18n/pt.json';
-import { ContentProvider } from '../hooks/useContent';
+import { ContentProvider } from './hooks/useContent';
 import { MenuItem } from '../types/api';
 import { MfeConfig } from '../types/globals';
 import { GlobalStyle } from '../styles/globalStyles';
@@ -36,37 +36,11 @@ export function Menu(props: Props) {
 
   const [dynamicMenuItems, setDynamicMenuItems] = useState<MenuItem[]>([]);
   const [epcHasError, setEpcHasError] = useState(false);
-  const [hideContentMenuItem, setHideContentMenuItem] = useState(false);
 
   const menuOpen = sessionStorage.getItem('menu_open') || '';
 
-  const { lang, disableContentMenu } = window.entando?.globals || {};
+  const { lang } = window.entando?.globals || {};
   const locale = lang || DEFAULT_LOCALE;
-
-  useEffect(() => {
-    const hideContentMenuItem = disableContentMenu || false;
-    setHideContentMenuItem(hideContentMenuItem);
-  }, [disableContentMenu]);
-
-  useEffect(() => {
-    const handleUserPreferencesUpdated = (event: any) => {
-      const { disableContentMenu } = event.detail;
-      const hideContentMenuItem = disableContentMenu || false;
-      setHideContentMenuItem(hideContentMenuItem);
-    };
-
-    window.addEventListener(
-      'user-preferences-updated',
-      handleUserPreferencesUpdated
-    );
-
-    return () => {
-      window.removeEventListener(
-        'user-preferences-updated',
-        handleUserPreferencesUpdated
-      );
-    };
-  }, []);
 
   useEffect(() => {
     const request = async () => {
@@ -121,7 +95,6 @@ export function Menu(props: Props) {
               dynamicMenuItems={dynamicMenuItems}
               openDefaultSubmenuId={menuOpen}
               epcHasError={epcHasError}
-              hideContentMenuItem={hideContentMenuItem}
             />
           </>
         )}
